@@ -1,0 +1,35 @@
+<?php $this->headTitle()->prepend('Document Index action');?>
+<section class="docs">
+<h2>Document Index Action</h2>
+  <div class="row">
+    <div class="span4">
+      <h2>Navigation</h2>
+        <p><?php echo '<pre>'; //print_r($this->docList);
+	echo '<ul>';
+	foreach ($this->docList as $value) {
+		//echo '<li>'.$value['CurDoc'].'</li>';
+		//if($value['parent_doc_id']){
+		//	echo '<ul>';
+		//}
+		print_r($value);
+	}
+       echo '</ul></pre>';
+?></p>
+      <!-- <p><a class="btn btn-primary" href="https://github.com/speckcommerce/speck">Speck on GIT &raquo;</a></p> -->
+		
+    </div>
+    <div class="span8">
+    <?php if($this->prevDoc):?>
+      <p><a class="btn btn-primary" href="<?php echo ('docs/'.$this->prevDoc[0]['doc_url_title'])?>"><?php echo $this->prevDoc[0]['doc_url_title']?> &raquo;</a></p>
+    <?php endif;?>
+      <h2><?php echo $this->document[0]['doc_title']?></h2>
+       <p><?php echo '<pre>'; print_r($this->document);//[0]['doc_text'];
+       
+       echo '</pre>';
+?></p>
+	  <?php if($this->nextDoc):?>
+      <p><a class="btn btn-primary" href="<?php echo ('docs/'.$this->nextDoc[0]['doc_url_title'])?>"><?php echo $this->nextDoc[0]['doc_url_title']?> &raquo;</a></p>
+      <?php endif;?>
+   </div>
+  </div>
+</section>
